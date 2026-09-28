@@ -19,34 +19,12 @@ import org.jetbrains.compose.resources.painterResource
 
 import kotlinproject.shared.generated.resources.Res
 import kotlinproject.shared.generated.resources.compose_multiplatform
-import edu.ucb.project.PruebasGenerales.presentation.screen.CatalogScreen
+import edu.ucb.project.swapi.presentation.screen.SwapiScreen
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        CatalogScreen()
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
-        }
+        SwapiScreen()
     }
 }
